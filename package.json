@@ -1,0 +1,19 @@
+{
+  "name": "testem-mocha-webpack-babel-chromium-headless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/givanse/testem-mocha-webpack-babel-chromium-headless.git"
+  },
+  "author": "givanse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/givanse/testem-mocha-webpack-babel-chromium-headless/issues"
+  },
+  "homepage": "https://github.com/givanse/testem-mocha-webpack-babel-chromium-headless#readme"
+}
