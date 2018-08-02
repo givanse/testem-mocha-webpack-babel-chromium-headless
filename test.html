@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Tests Runner</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script>
+      const options = {
+        ui: 'bdd',
+        fullTrace: true,
+        allowUncaught: true,
+        forbidOnly: true,
+        forbidPending: true,
+        timeout: 1000,
+        slow: 100, // slowness threshold
+        ignoreLeaks: false,
+        globals: [],
+      };
+      mocha.setup(options)
+    </script>
+
+    <script src="/testem.js"></script>
+    <script src="http://localhost:8081/bundle.js"></script>
+
+    <script>
+      mocha.run();
+    </script>
+
+  </body>
+</html>
