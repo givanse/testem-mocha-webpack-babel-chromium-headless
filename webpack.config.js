@@ -1,31 +1,32 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './test/index.js',
+  entry: path.resolve(__dirname, 'test', 'index.js'),
+  //entry: './src/index.js',
   mode: 'development',
   node: {
     fs: 'empty'
   },
   output: {
     filename: 'bundle.js',
-    //path: __dirname + 'dist',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-            ],
-            plugins: [
-            ]
-          }
-        }
+        use: { loader: 'babel-loader' }
       }
     ]
   },
+	plugins: [
+		new CopyWebpackPlugin([
+      {
+        from: './src/*.html',
+        flatten: true
+      }
+		])
+  ]
 };
