@@ -8,10 +8,32 @@
       "type": "node",
       "request": "launch",
       "protocol": "inspector",
-      "name": "bin script",
+      "name": "dorothy",
       "runtimeExecutable": "/Users/gsilvae/.nvm/versions/node/v8.11.2/bin/node",
-      "program": "${workspaceFolder}/bin/start-dev-server",
-      "outputCapture": "std",
+      "program": "${workspaceFolder}/bin/dorothy",
+      "args": [
+        //"build",
+        //"--env",
+        "test"
+      ]
+    },
+    /**
+     * before executing this run:
+     * dorothy start-build-dev-server
+     */
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "name": "acceptance tests",
+      "runtimeExecutable": "/Users/gsilvae/.nvm/versions/node/v8.11.2/bin/node",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "test/acceptance"
+      ],
+      //"outputCapture": "std",
+      //"console": "integratedTerminal",
+      //"internalConsoleOptions": "neverOpen"
     }
   ]
 }

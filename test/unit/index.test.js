@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import helloWorld from '../src';
+import helloWorld from '../../src';
 
 describe('hello world function', function() {
 

@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Tests Runner</title>
+    <title>Testem test page</title>
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
   </head>
 
@@ -23,7 +23,33 @@
     </script>
 
     <script src="/testem.js"></script>
-    <script src="http://localhost:8081/bundle.js"></script>
+    <script>
+      const buildPort = window.location.search.match(/buildPort=(\d*)/)[1];
+      if (!buildPort) {
+        throw new Error('No `buildPort` found in the query string.');
+      }
+
+      function onloadPromise(script) {
+        return new Promise(function(resolve) {
+          script.onload = function() {
+            resolve();
+          };
+        });
+      }
+
+      function addScript(port) {
+        const script = document.createElement("script");
+        const url = `http://localhost:${port}/bundle.js`;
+        script.setAttribute("src", url);
+        document.body.appendChild(script);
+        return onloadPromise(script);
+      }
+
+      addScript(buildPort)
+      .then(function() {
+        mocha.run();
+      });
+    </script>
 
     <script>
       mocha.run();

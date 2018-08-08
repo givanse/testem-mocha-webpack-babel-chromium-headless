@@ -2,8 +2,7 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.js'),
-  //entry: path.resolve(__dirname, 'test', 'index.js'),
+  entry: path.resolve(__dirname, 'test', 'unit', 'index.js'),
   mode: 'development',
   node: {
     fs: 'empty'
@@ -24,8 +23,7 @@ module.exports = {
 	plugins: [
 		new CopyWebpackPlugin([
       {
-        from: './src/*.html',
-        //from: './test/*.html',
+        from: './test/*.html',
         flatten: true
       }
 		])
